@@ -1,16 +1,35 @@
+import { createRouter, createWebHashHistory } from "vue-router";
 
-import { createRouter, createWebHashHistory } from 'vue-router'
-import Dashboard from "@/components/Dashboard.vue"
-import Page1 from "@/components/Page1.vue"
+import Home from "@/components/Home.vue";
 
+import Page1 from "@/components/Page1.vue";
+import Page2 from "@/components/Page2.vue";
 
 const routes = [
-  { path: '/', component: Dashboard },
-  { path: '/page1', component: Page1 },
-]
+  {
+    path: "/",
+    name: "Home",
+    component: Home,
+    meta: {
+      isAuth: true,
+    },
+    children: [
+      {
+        path: "",
+        name: "Page1",
+        component: Page1,
+      },
+      {
+        path: "/page2",
+        name: "Page2",
+        component: Page2,
+      },
+    ],
+  },
+];
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
-})
+});
 
-export default router
+export default router;
