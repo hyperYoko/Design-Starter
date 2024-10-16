@@ -1,0 +1,51 @@
+
+
+
+//variables
+$font-family: "Inter";
+$primary-color: #4c8493;
+
+.v-application,
+.v-overlay-container {
+  [class*="text-"] {
+    color: #36405a;
+    font-family: $font-family, sans-serif !important;
+  }
+  font-family: $font-family, sans-serif !important;
+}
+
+.AppBar {
+  background-color: #f8f8f8 !important;
+  color: $primary-color !important;
+}
+
+.MenuListItems * {
+  color: $primary-color;
+  // transition: transform 0.1s ease-in-out;
+}
+.MenuListItems:hover * {
+  font-weight: 600 !important;
+}
+.MenuListItems:hover .v-icon {
+  font-weight: bold !important;
+  transform: scale(1.05) !important;
+  opacity: 1 !important;
+}
+
+.NavBar {
+  background-color: $primary-color;
+  color: #f8f8f8;
+}
+.NavBarListItems * {
+  color: #f8f8f8;
+  transition: transform 0.1s ease-in-out;
+}
+.NavBarListItems:hover * {
+  font-weight: 600 !important;
+}
+.NavBarListItems:hover .v-icon {
+  font-weight: bold !important;
+  transform: scale(1.05) !important;
+  /* usually color dimmed when not hovered but vuetify dims opacity when not hovered*/
+  opacity: 1 !important;
+}

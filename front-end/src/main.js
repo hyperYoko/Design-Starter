@@ -30,6 +30,7 @@ const vuetify = createVuetify({
       fa,
     },
   },
+  
 });
 
 createApp(App).use(vuetify).use(router).use(pinia).mount("#app");
