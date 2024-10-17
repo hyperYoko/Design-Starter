@@ -7,7 +7,7 @@
     <!-- <v-app-bar-nav-icon @click="navdrawer = !navdrawer"></v-app-bar-nav-icon> -->
     <v-app-bar-nav-icon @click="navdrawer = !navdrawer">
       <!-- change to active:false if i don't want to see x mark -->
-      <label :class="{ active: navdrawer }"> 
+      <label :class="{ active: navdrawer }">
         <div></div>
         <div></div>
         <div></div>
@@ -15,7 +15,7 @@
     </v-app-bar-nav-icon>
 
     <v-app-bar-title
-      style="font-size: x-large !important; font-weight: 900 !important"
+      style="font-size: x-large !important; font-weight: 800 !important"
     >
       Design Starter
     </v-app-bar-title>
@@ -27,16 +27,23 @@
     </v-app-bar-title> -->
 
     <v-spacer></v-spacer>
-    <!-- <NotificationMenu /> -->
-    <span style="height: 43px !important; margin-right: 25px">
+    <span style="margin-right: 25px; display: flex; justify-content: flex-end">
+      <!-- <NotificationMenu /> -->
+      <v-btn rounded="lg" style="margin-bottom: 2.5px">
+        <v-badge color="error" :content="'5'" max="9"
+          ><v-icon size="large"> fas fa-bell </v-icon>
+        </v-badge>
+      </v-btn>
       <v-menu location="bottom">
         <template v-slot:activator="{ isHovering, props }">
-          <v-btn
-            v-bind="props"
-            append-icon="fas fa-sort-down"
-            style="height: 43px !important"
-          >
-            <div style="margin-top: 6px">Super Admin</div>
+          <v-btn v-bind="props" rounded="lg">
+            <!-- <template v-slot:prepend
+              ><v-icon style="margin-bottom: 2.5px;">fas fa-circle-user</v-icon>
+            </template> -->
+            <template v-slot:append
+              ><v-icon style="margin-bottom: 2.5px">fas fa-caret-down</v-icon>
+            </template>
+            <span>Super Admin</span>
           </v-btn>
         </template>
         <v-list>
@@ -61,23 +68,35 @@
   <v-navigation-drawer
     rail
     expand-on-hover
-    width="290"
+    width="270"
     v-model="navdrawer"
     class="NavBar"
     elevation="2"
   >
-    <v-list>
+    <!-- 'nav' prop for v-list + NavBarListItems style + list-item-title inline style is used for rounded list items 
+    that also do not mess up the navbar icon and hamburger icon alignment -->
+    <v-list nav>
       <v-list-item
         v-for="(item, i) in navBarItems"
         :key="i"
         :value="item"
         @click="navBarItemsAction(item.id)"
         class="py-2 NavBarListItems"
+        slim
       >
         <template v-slot:prepend>
-          <v-icon :icon="item.icon"></v-icon>
+          <v-icon :icon="item.icon" ></v-icon>
         </template>
-        <v-list-item-title>{{ item.text }}</v-list-item-title>
+        <v-list-item-title style="font-size: 15px; line-height: 1.15rem">{{
+          item.text
+        }}</v-list-item-title>
+        <template v-slot:append>
+          <v-icon
+            icon="fas fa-angle-right"
+            size="x-small"
+            class="NavBarListItemAppendIcon"
+          ></v-icon>
+        </template>
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
@@ -85,7 +104,6 @@
 
 <script>
 // import NotificationMenu from "@/components/NotificationMenu.vue";
-
 export default {
   setup() {},
 
@@ -117,7 +135,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import "@/style.scss";
 
 /* hamburger CSS */
 label {
@@ -137,7 +156,7 @@ label div {
   position: relative;
   top: 0;
   height: 12px;
-  background-color: #4c8493;
+  background-color: $primary-color;
   margin-bottom: 12px;
   transition: 0.3s ease transform, 0.3s ease top, 0.3s ease width,
     0.3s ease right;
@@ -157,7 +176,6 @@ label div:nth-child(2) {
   right: 0;
   width: 60px;
 }
-
 
 label.active div:first-child {
   top: -6px;

@@ -1,10 +1,11 @@
-
-
-
 //variables
 $font-family: "Inter";
-$primary-color: #4c8493;
+$primary-color: rgb(51, 71, 91);
+$primary-color-hover: rgb(66, 91, 118);
 
+$primary-color-2: #4c8493;
+
+//vuetify font
 .v-application,
 .v-overlay-container {
   [class*="text-"] {
@@ -14,6 +15,7 @@ $primary-color: #4c8493;
   font-family: $font-family, sans-serif !important;
 }
 
+//appbar
 .AppBar {
   background-color: #f8f8f8 !important;
   color: $primary-color !important;
@@ -21,31 +23,41 @@ $primary-color: #4c8493;
 
 .MenuListItems * {
   color: $primary-color;
-  // transition: transform 0.1s ease-in-out;
 }
 .MenuListItems:hover * {
   font-weight: 600 !important;
 }
 .MenuListItems:hover .v-icon {
   font-weight: bold !important;
-  transform: scale(1.05) !important;
-  opacity: 1 !important;
+  opacity: 0.9 !important;
 }
 
+//navbar
 .NavBar {
   background-color: $primary-color;
   color: #f8f8f8;
 }
+.NavBarListItems {
+  border-radius: 8px !important;
+  margin: 10px 0;
+  transition: background-color 0.1s ease;
+}
 .NavBarListItems * {
   color: #f8f8f8;
-  transition: transform 0.1s ease-in-out;
+}
+.NavBarListItemAppendIcon {
+  display: none !important;
+}
+.NavBarListItems:hover {
+  background-color: $primary-color-hover !important;
 }
 .NavBarListItems:hover * {
-  font-weight: 600 !important;
+  // font-weight: 600 !important;
 }
 .NavBarListItems:hover .v-icon {
   font-weight: bold !important;
-  transform: scale(1.05) !important;
-  /* usually color dimmed when not hovered but vuetify dims opacity when not hovered*/
-  opacity: 1 !important;
+  opacity: 0.9 !important;
+}
+.NavBarListItems:hover .NavBarListItemAppendIcon {
+  display: inline-block !important;
 }
