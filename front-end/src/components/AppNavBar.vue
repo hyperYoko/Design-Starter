@@ -15,7 +15,7 @@
     </v-app-bar-nav-icon>
 
     <v-app-bar-title
-      style="font-size: x-large !important; font-weight: 800 !important"
+      style="font-size: 22px !important; font-weight: 800 !important"
     >
       Design Starter
     </v-app-bar-title>

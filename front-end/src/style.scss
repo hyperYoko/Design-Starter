@@ -2,8 +2,21 @@
 $font-family: "Inter";
 $primary-color: rgb(51, 71, 91);
 $primary-color-hover: rgb(66, 91, 118);
+$primary-color-gradient: linear-gradient(
+  184deg,
+  hsla(210, 28%, 28%, 1) 0%,
+  hsla(210, 43%, 51%, 1) 100%
+);
 
 $primary-color-2: #4c8493;
+$secondary-color: rgb(245, 248, 250);
+$secondary-color-dark: rgb(223, 227, 235);
+
+$tertiary-color: #ff7a59;
+$white: rgb(254, 254, 254);
+$light-grey: rgb(247, 247, 247);
+$medium-grey: #bebebe;
+$dark-grey: #979797;
 
 //vuetify font
 .v-application,
@@ -17,7 +30,7 @@ $primary-color-2: #4c8493;
 
 //appbar
 .AppBar {
-  background-color: #f8f8f8 !important;
+  background-color: $white !important;
   color: $primary-color !important;
 }
 
@@ -35,7 +48,7 @@ $primary-color-2: #4c8493;
 //navbar
 .NavBar {
   background-color: $primary-color;
-  color: #f8f8f8;
+  color: $light-grey;
 }
 .NavBarListItems {
   border-radius: 8px !important;
@@ -43,7 +56,7 @@ $primary-color-2: #4c8493;
   transition: background-color 0.1s ease;
 }
 .NavBarListItems * {
-  color: #f8f8f8;
+  color: $light-grey;
 }
 .NavBarListItemAppendIcon {
   display: none !important;
@@ -60,4 +73,360 @@ $primary-color-2: #4c8493;
 }
 .NavBarListItems:hover .NavBarListItemAppendIcon {
   display: inline-block !important;
+}
+
+//global scrollbar
+//firefox
+html {
+  scrollbar-width: thin; //overrides webkit-based width as well
+  scrollbar-color: #acacac rgba(0, 0, 0, 0); //thumb and track
+}
+//webkit-based browsers
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #acacac;
+  border-radius: 4px !important;
+}
+
+::-webkit-scrollbar-track {
+  opacity: 0 !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #8d8d8d;
+}
+
+//page
+.PageBackgroundDiv {
+  background-color: $light-grey;
+}
+.PageBackgroundContainer {
+  background-color: $light-grey;
+}
+
+.PageTitleCard {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  padding: 10px;
+  background-color: $white;
+  border-radius: 5px;
+  border: none !important;
+  margin-bottom: 16px;
+  // box-shadow: 0 2px 6px #0000001f, inset 0 -1px #dadce0;
+  box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.13),
+    0px 0px 2.9px rgba(0, 0, 0, 0.11);
+}
+.PageTitleCard2 {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  padding: 0px !important;
+  background-color: $light-grey;
+  border-radius: 5px;
+  border: none !important;
+  // margin-bottom: 16px;
+}
+.PageTitleCardTextContainer2 {
+  padding: 0px !important;
+}
+
+.PageTitleCardText {
+  color: $primary-color;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.PageBodyCard {
+  background-color: $white;
+  padding: 40px 50px;
+  border-radius: 5px;
+  box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.13),
+    0px 0px 2.9px rgba(0, 0, 0, 0.11);
+}
+
+//Card
+.CardsRow {
+  margin: 5% 10%;
+}
+.ImageCard {
+  height: 200px;
+  width: 200px;
+  margin: auto;
+  padding: 12px;
+  border: 1px solid #7fd1de;
+  // border: 1px solid $primary-color-hover;
+
+  border-radius: 3px;
+}
+.ImageCard:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0 1px #7fd1de, 0 0 12px 0 rgba(0, 163, 189, 0.3);
+  // box-shadow: 0 0 0 1px $primary-color-hover, 0 0 12px 0 rgba(0, 163, 189, 0.3);
+}
+.ImageCardImage {
+  padding-left: 45px !important;
+  padding-right: 45px !important;
+  object-fit: contain;
+}
+.ImageCardText {
+  color: $primary-color;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  //ellipses
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.SelectableCard {
+  height: 300px;
+  width: 200px;
+  margin: auto;
+  padding: 12px;
+  border: 1px solid #7fd1de;
+  border-radius: 3px;
+}
+.SelectableCard:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0 1px #7fd1de, 0 0 12px 0 rgba(0, 163, 189, 0.3);
+}
+.SelectableCard_selected {
+  border-color: #00a4bd;
+  box-shadow: 0 0 0 1px #00a4bd;
+  background-color: #e5f5f8;
+  transition: all 0.15s ease-out;
+}
+.SelectedCardCheckboxCol {
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.SelectableCardImage {
+  padding-left: 45px !important;
+  padding-right: 45px !important;
+  object-fit: contain;
+}
+.SelectableCardTextHeadCol {
+  padding-bottom: 0 !important;
+}
+.SelectableCardTextHead {
+  color: $primary-color;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  //ellipses
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.SelectableCardTextBodyCol {
+  padding-top: 0px !important;
+}
+.SelectableCardTextBody {
+  padding: 0px 16px !important;
+  color: $primary-color;
+  text-align: center;
+  font-size: 12px;
+  line-height: 18px;
+  //ellipses
+  white-space: normal;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
+}
+
+//Buttons
+.ActionButton {
+  height: 30px !important;
+  width: 30px !important;
+  color: $primary-color !important;
+  border-radius: 50px;
+  border: 2px solid $primary-color;
+  opacity: 0.8;
+}
+.ActionButton i {
+  display: flex;
+  // font-size: small !important;
+}
+.ActionButton:hover {
+  opacity: 1;
+}
+
+.ActionButtonInverse {
+  height: 30px !important;
+  width: 30px !important;
+  color: $white !important;
+  background-color: $primary-color !important;
+  border-radius: 50px;
+  opacity: 0.8;
+}
+.ActionButtonInverse i {
+  display: flex;
+  // font-size: small !important;
+}
+.ActionButtonInverse:hover {
+  opacity: 1;
+}
+
+.ButtonsRow {
+}
+.NormalButton {
+  text-transform: none;
+  background-color: $primary-color;
+  color: $white;
+}
+.NormalButton:hover {
+  background-color: $primary-color-hover !important;
+}
+
+.NormalButtonInverse {
+  text-transform: none;
+  background-color: $white;
+  color: $primary-color;
+  border: 1px solid $primary-color;
+}
+.NormalButtonInverse:hover {
+  background-color: $light-grey !important;
+}
+.NormalButtonContrast {
+  text-transform: none;
+  background-color: $tertiary-color;
+  color: $white;
+}
+.NormalButtonContrastInverse {
+  text-transform: none;
+  background-color: $white;
+  color: $tertiary-color;
+  border: 1px solid $tertiary-color;
+}
+
+.PreviousButton {
+  text-transform: none;
+  background-color: $primary-color;
+  background-image: none;
+  color: $white;
+  transition: background-color 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.PreviousButton:hover {
+  background-color: $primary-color-hover;
+  // background-image: $primary-color-gradient;
+}
+
+.PreviousButtonLabel {
+  transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.PreviousButtonArrow {
+  margin-right: -0.6rem;
+  opacity: 0;
+  transition: opacity 0.4s, transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.PreviousButton:hover .PreviousButtonLabel {
+  transform: translateX(0.45em); /* move the text to the left when hovered */
+}
+
+.PreviousButton:hover .PreviousButtonArrow {
+  padding-right: 0px;
+  opacity: 1;
+  transform: translateX(
+    -0.45em
+  ); /* show the arrow and slightly move it right */
+}
+
+.NextButton {
+  text-transform: none;
+  background-color: $primary-color;
+  background-image: none;
+  color: $white;
+  transition: background-color 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.NextButton:hover {
+  background-color: $primary-color-hover;
+  // background-image: $primary-color-gradient;
+}
+
+.NextButtonLabel {
+  transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.NextButtonArrow {
+  margin-left: -0.6rem;
+  opacity: 0;
+  transition: opacity 0.4s, transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.NextButton:hover .NextButtonLabel {
+  transform: translateX(-0.45em); /* Move the text to the left when hovered */
+}
+
+.NextButton:hover .NextButtonArrow {
+  padding-right: 0px;
+  opacity: 1;
+  transform: translateX(0.45em); /* Show the arrow and slightly move it right */
+}
+
+//Table
+.DataTable {
+  color: $primary-color;
+  border: 1px solid $medium-grey;
+}
+//toolbar
+.DataTableTop {
+  background-color: $secondary-color;
+  color: $primary-color;
+  // border-bottom: 1px solid $secondary-color-dark !important;
+  border-bottom: thin solid rgba(0, 0, 0, 0.12); //replicate data-table's border
+  border-radius: inherit;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+
+  height: var(--v-table-row-height) !important;
+}
+.DataTableTop .v-toolbar__content {
+  height: var(--v-table-row-height) !important;
+}
+.SearchField {
+  max-height: 40px;
+  margin-left: 65%;
+  margin-right: 1%;
+  background-color: $white;
+  border: 1px solid $medium-grey;
+  border-radius: 3px;
+}
+.SearchField:has(.v-field--active) {
+  border-color: rgba(0, 208, 228, 0.5);
+  box-shadow: 0 0 4px 1px rgba(0, 208, 228, 0.3), 0 0 0 1px #00d0e4;
+  outline: 0;
+}
+//header option 1
+.DataTable > .v-table__wrapper > table > thead tr {
+  background-color: $secondary-color;
+  // color: $primary-color;
+  border-bottom: thin solid rgba(0, 0, 0, 0.12);
+}
+
+//header uppercase and border-right
+.DataTable > .v-table__wrapper > table > thead tr th {
+  text-transform: uppercase !important;
+  border-right: thin solid rgba(0, 0, 0, 0.12);
+}
+.DataTable > .v-table__wrapper > table > thead tr th:last-child {
+  border-right: none; /* Remove the right border for the last cell */
+}
+//body border-right
+.DataTable > .v-table__wrapper > table > tbody tr td {
+  border-right: thin solid rgba(0, 0, 0, 0.12);
+}
+.DataTable > .v-table__wrapper > table > tbody tr td:last-child {
+  border-right: none; /* Remove the right border for the last cell */
 }
