@@ -3,7 +3,9 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import Home from "@/components/Home.vue";
 
 import Page1 from "@/components/Page1.vue";
-import Page2 from "@/components/Page2.vue";
+import Form from "@/components/Form.vue";
+import Page3 from "@/components/Page3.vue";
+
 
 const routes = [
   {
@@ -20,9 +22,14 @@ const routes = [
         component: Page1,
       },
       {
-        path: "/page2",
-        name: "Page2",
-        component: Page2,
+        path: "/form",
+        name: "Form",
+        component: Form,
+      },
+      {
+        path: "/page3",
+        name: "Page3",
+        component: Page3,
       },
     ],
   },

@@ -114,8 +114,9 @@ export default {
     ],
     navdrawer: true,
     navBarItems: [
-      { text: "Page 1", icon: "fas fa-chart-simple", id: 1 },
-      { text: "Page 2", icon: "fas fa-file-lines", id: 2 },
+      { text: "Page 1", icon: "fas fa-file-lines", id: 1 },
+      { text: "Form", icon: "fas fa-file-lines", id: 2 },
+      { text: "Page 3", icon: "fas fa-file-lines", id: 2 },
     ],
   }),
   methods: {
@@ -124,7 +125,9 @@ export default {
       if (id == 1) {
         this.$router.push({ name: "Page1" });
       } else if (id == 2) {
-        this.$router.push({ name: "Page2" });
+        this.$router.push({ name: "Form" });
+      } else if (id == 3) {
+        this.$router.push({ name: "Page3" });
       }
     },
   },

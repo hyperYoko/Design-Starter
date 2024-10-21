@@ -244,12 +244,14 @@ html {
 
 //Buttons
 .ActionButton {
-  height: 30px !important;
-  width: 30px !important;
   color: $primary-color !important;
   border-radius: 50px;
   border: 2px solid $primary-color;
   opacity: 0.8;
+}
+.ActionButtonDimensions {
+  height: 30px !important;
+  width: 30px !important;
 }
 .ActionButton i {
   display: flex;
@@ -260,12 +262,14 @@ html {
 }
 
 .ActionButtonInverse {
-  height: 30px !important;
-  width: 30px !important;
   color: $white !important;
   background-color: $primary-color !important;
   border-radius: 50px;
   opacity: 0.8;
+}
+.ActionButtonInverseDimensions {
+  height: 30px !important;
+  width: 30px !important;
 }
 .ActionButtonInverse i {
   display: flex;
@@ -429,4 +433,111 @@ html {
 }
 .DataTable > .v-table__wrapper > table > tbody tr td:last-child {
   border-right: none; /* Remove the right border for the last cell */
+}
+
+//Form
+.Header {
+  height: auto !important;
+  width: 55%;
+  margin: 5px auto;
+  padding: 16px;
+  position: relative;
+  overflow: visible;
+  border-top: 11px solid $primary-color;
+  background-color: $light-grey;
+}
+.FormHeaderTextField input {
+  font-size: 22.5px !important;
+  font-weight: 600 !important;
+  padding-top: 0px !important;
+  margin-bottom: 15px;
+}
+.FormHeaderDescriptionField input {
+  font-size: 14px !important;
+  padding-top: 0px !important;
+}
+.Header-NoSection {
+  border-radius: 8px;
+}
+.Header-Section {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.Section {
+  width: 55%;
+  margin: 5px auto;
+  /* border-radius: 8px; */
+  background-color: $light-grey;
+  /* background-color: #dfeef5; */
+}
+
+.Section-middle {
+  border-radius: 0;
+}
+
+.Section-last {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.Section-submit {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 16px 32px !important;
+}
+
+.FormSectionTextField input {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 0px;
+}
+.FormFieldGroupTextField input {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 0px;
+}
+.FieldCols {
+  padding-left: 0 !important;
+  padding-right: 16px !important;
+}
+
+.FieldCols:nth-child(2n) {
+  padding-right: 0 !important;
+}
+.FieldLabel {
+  padding: 0 0 5px 2px;
+  font-size: 13.25px;
+}
+.FieldDate input {
+  display: block;
+}
+.FieldBoolGroup {
+  height: 40px !important;
+  display: flex;
+  justify-content: space-between;
+}
+.FieldBoolButton {
+  height: 100% !important;
+  width: 48.5% !important;
+  border: 1px solid $dark-grey;
+  text-transform: none;
+}
+.FieldBoolButton_selected {
+  transition: all 0.15s ease-in;
+  background-color: $primary-color;
+  color: $white;
+}
+
+//Dialog
+.DialogCard {
+  background-color: $light-grey;
+}
+.DialogCardTitle {
+  background-color: $primary-color;
+  color: $white;
 }

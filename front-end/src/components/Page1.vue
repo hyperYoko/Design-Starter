@@ -22,13 +22,13 @@
           <v-btn
             icon="fas fa-plus"
             size="x-small"
-            class="ActionButton"
+            class="ActionButton ActionButtonDimensions"
             variant="flat"
           ></v-btn>
           <!-- <v-btn
             icon="fas fa-plus"
             size="x-small"
-            class="ActionButtonInverse"
+            class="ActionButtonInverse ActionButtonInverseDimensions"
             variant="flat"
           ></v-btn> -->
         </span>
