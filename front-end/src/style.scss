@@ -16,9 +16,9 @@ $secondary-color-hover: rgb(229, 245, 248);
 $tertiary-color: #ff7a59;
 $white: rgb(254, 254, 254);
 $light-grey: rgb(247, 247, 247);
+$light-medium-grey: rgba(0, 0, 0, 0.12);
 $medium-grey: #bebebe;
 $dark-grey: #979797;
-
 //vuetify font
 .v-application,
 .v-overlay-container {
@@ -378,7 +378,7 @@ html {
   background-color: $secondary-color;
   color: $primary-color;
   // border-bottom: 1px solid $secondary-color-dark !important;
-  border-bottom: thin solid rgba(0, 0, 0, 0.12); //replicate data-table's border
+  border-bottom: thin solid $light-medium-grey; //replicate data-table's border
   border-radius: inherit;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -405,20 +405,20 @@ html {
 .DataTable > .v-table__wrapper > table > thead tr {
   background-color: $secondary-color;
   // color: $primary-color;
-  border-bottom: thin solid rgba(0, 0, 0, 0.12);
+  border-bottom: thin solid $light-medium-grey;
 }
 
 //header uppercase and border-right
 .DataTable > .v-table__wrapper > table > thead tr th {
   text-transform: uppercase !important;
-  border-right: thin solid rgba(0, 0, 0, 0.12);
+  border-right: thin solid $light-medium-grey;
 }
 .DataTable > .v-table__wrapper > table > thead tr th:last-child {
   border-right: none; /* Remove the right border for the last cell */
 }
 //body border-right
 .DataTable > .v-table__wrapper > table > tbody tr td {
-  border-right: thin solid rgba(0, 0, 0, 0.12);
+  border-right: thin solid $light-medium-grey;
 }
 .DataTable > .v-table__wrapper > table > tbody tr td:last-child {
   border-right: none; /* Remove the right border for the last cell */
@@ -704,6 +704,7 @@ html {
   background-color: $white;
   border-radius: 0px;
   border-top: 1px solid $medium-grey;
+  margin-bottom: 16px;
 }
 .SubNavBarPageTabs {
   margin-top: 20px;
@@ -738,6 +739,60 @@ html {
 
 .SubNavBarPageBodyCard {
   background-color: $white;
-  padding: 10px 30px;
+  padding: 10px 46px; //30px + 16px
   border-radius: 0px;
+
+  h3 {
+    // font-size: 20px;
+    line-height: 30px;
+    color: $primary-color;
+  }
+  .SubNavBarPageFieldLabel {
+    padding: 0 0 5px 0px;
+    font-size: 13.25px;
+    font-weight: 500;
+  }
+  .SubNavBarPageField {
+    background-color: $secondary-color;
+  }
+  .ProfileImage {
+    height: 120px;
+    width: 120px;
+    position: relative; //for overlay
+  }
+  .ProfileImageOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease; /* Smooth transition */
+  }
+  .ProfileImage:hover .ProfileImageOverlay {
+    opacity: 1; /* Show overlay on hover */
+  }
+
+  .SubNavBarPageCard {
+    //outlined
+    border: 1px solid $medium-grey;
+
+    //elevated
+    // border: 1px solid $light-medium-grey;
+    // box-shadow: rgba(45, 62, 80, 0.12) 0px 1px 5px 0px;
+  }
+  .SubNavBarPageHeader {
+    border-bottom: thin solid $light-medium-grey;
+    background-color: $secondary-color !important;
+    padding: 20px;
+  }
+  .SubNavBarPageText {
+    background-color: $white !important;
+    padding: 20px;
+  }
 }

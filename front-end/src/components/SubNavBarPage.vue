@@ -80,20 +80,88 @@
                 class="NormalButtonContrastInverse NormalButtonHeaderDimensions"
                 style="margin-right: 10px; margin-bottom: 10px"
                 variant="flat"
-                >Email Tools</v-btn
+                >Reset</v-btn
               >
               <v-btn
                 class="NormalButtonContrast NormalButtonHeaderDimensions"
                 variant="flat"
                 style="margin-bottom: 10px"
-                >Create Email</v-btn
+                >Save</v-btn
               >
               <!-- margin-bottom to counter title card's need for padding-bottom = 0 for tabs  -->
             </div>
           </v-card>
 
           <v-card class="SubNavBarPageBodyCard" variant="flat">
-             </v-card>
+            <div>
+              <h3>Profile</h3>
+              <v-row style="margin-top: 10px">
+                <v-col sm="8" md="4">
+                  <p class="SubNavBarPageFieldLabel mb-2">Profile Image</p>
+
+                  <v-img
+                    rounded="circle"
+                    aspect-ratio="1/1"
+                    cover
+                    src="/images/profile.png"
+                    class="ProfileImage"
+                  >
+                    <div class="ProfileImageOverlay">
+                      <v-icon
+                        icon="fas fa-pen"
+                        style="display: flex; color: white"
+                      ></v-icon>
+                    </div>
+                  </v-img> </v-col
+              ></v-row>
+              <v-row style="margin-top: 10px">
+                <v-col sm="8" md="4">
+                  <p class="SubNavBarPageFieldLabel">First Name</p>
+
+                  <v-text-field
+                    variant="outlined"
+                    class="SubNavBarPageField"
+                    hide-details
+                    density="comfortable"
+                  ></v-text-field> </v-col
+              ></v-row>
+              <v-row style="margin-top: 10px; margin-bottom: 10px">
+                <v-col sm="8" md="4">
+                  <p class="SubNavBarPageFieldLabel">Last Name</p>
+
+                  <v-text-field
+                    variant="outlined"
+                    class="SubNavBarPageField"
+                    hide-details
+                    density="comfortable"
+                  ></v-text-field> </v-col
+              ></v-row>
+            </div>
+            <div style="margin-top: 20px">
+              <v-card variant="flat" class="SubNavBarPageCard">
+                <!-- <template v-slot:prepend>
+                  <v-icon icon="fas fa-gear" size="small" style="display: flex;"></v-icon>
+                </template> -->
+                <v-card-item class="SubNavBarPageHeader">
+                  <template v-slot:title>
+                    <span class="PageTitleCardText" style="font-size: 19px"
+                      >Export Config</span
+                    >
+                  </template>
+                </v-card-item>
+
+                <v-card-text class="SubNavBarPageText">
+                  <h3>SubTotal</h3>
+                  <p style="margin-top: 10px">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Commodi, ratione debitis quis est labore voluptatibus! Eaque
+                    cupiditate minima, at placeat totam, magni doloremque veniam
+                    neque porro libero rerum unde voluptatem!
+                  </p>
+                </v-card-text>
+              </v-card>
+            </div>
+          </v-card>
         </v-tabs-window-item>
 
         <v-tabs-window-item value="navtabtwo"> </v-tabs-window-item>
