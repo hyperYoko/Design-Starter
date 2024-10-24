@@ -37,7 +37,7 @@
           <v-btn
             icon="fas fa-save"
             size="x-small"
-            class="ActionButtonInverse ActionButtonInverseDimensions"
+            class="ActionButtonInverse ActionButtonDimensions"
             variant="flat"
           ></v-btn>
         </span>

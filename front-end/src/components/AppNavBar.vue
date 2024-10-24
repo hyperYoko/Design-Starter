@@ -6,8 +6,8 @@
   >
     <!-- <v-app-bar-nav-icon @click="navdrawer = !navdrawer"></v-app-bar-nav-icon> -->
     <v-app-bar-nav-icon @click="navdrawer = !navdrawer">
-      <!-- change to active:false if i don't want to see x mark -->
-      <label :class="{ active: navdrawer }">
+      <!-- change to active:navdrawer if i want to see x mark animation -->
+      <label :class="{ active: false }">
         <div></div>
         <div></div>
         <div></div>
@@ -85,7 +85,7 @@
         slim
       >
         <template v-slot:prepend>
-          <v-icon :icon="item.icon" ></v-icon>
+          <v-icon :icon="item.icon"></v-icon>
         </template>
         <v-list-item-title style="font-size: 15px; line-height: 1.15rem">{{
           item.text
@@ -114,20 +114,27 @@ export default {
     ],
     navdrawer: true,
     navBarItems: [
-      { text: "Page 1", icon: "fas fa-file-lines", id: 1 },
+      { text: "Elevated Page", icon: "fas fa-file-lines", id: 1 },
       { text: "Form", icon: "fas fa-file-lines", id: 2 },
-      { text: "Page 3", icon: "fas fa-file-lines", id: 2 },
+      { text: "Elevated Line Page", icon: "fas fa-file-lines", id: 3 },
+
+      { text: "Plain Page", icon: "fas fa-file-lines", id: 4 },
+      { text: "SubNavBar Page", icon: "fas fa-file-lines", id: 5 },
     ],
   }),
   methods: {
     appBarItemsAction(id) {},
     navBarItemsAction(id) {
       if (id == 1) {
-        this.$router.push({ name: "Page1" });
+        this.$router.push({ name: "ElevatedPage" });
       } else if (id == 2) {
         this.$router.push({ name: "Form" });
       } else if (id == 3) {
-        this.$router.push({ name: "Page3" });
+        this.$router.push({ name: "ElevatedLinePage" });
+      } else if (id == 4) {
+        this.$router.push({ name: "PlainPage" });
+      } else if (id == 5) {
+        this.$router.push({ name: "SubNavBarPage" });
       }
     },
   },

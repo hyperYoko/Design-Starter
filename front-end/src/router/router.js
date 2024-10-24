@@ -2,9 +2,13 @@ import { createRouter, createWebHashHistory } from "vue-router";
 
 import Home from "@/components/Home.vue";
 
-import Page1 from "@/components/Page1.vue";
+import ElevatedPage from "@/components/ElevatedPage.vue";
 import Form from "@/components/Form.vue";
-import Page3 from "@/components/Page3.vue";
+import ElevatedLinePage from "@/components/ElevatedLinePage.vue";
+
+import PlainPage from "@/components/PlainPage.vue";
+import SubNavBarPage from "@/components/SubNavBarPage.vue";
+
 
 
 const routes = [
@@ -18,8 +22,8 @@ const routes = [
     children: [
       {
         path: "",
-        name: "Page1",
-        component: Page1,
+        name: "ElevatedPage",
+        component: ElevatedPage,
       },
       {
         path: "/form",
@@ -27,9 +31,19 @@ const routes = [
         component: Form,
       },
       {
-        path: "/page3",
-        name: "Page3",
-        component: Page3,
+        path: "/elevatedlinepage",
+        name: "ElevatedLinePage",
+        component: ElevatedLinePage,
+      },
+      {
+        path: "/plainpage",
+        name: "PlainPage",
+        component: PlainPage,
+      },
+      {
+        path: "/subnavbarpage",
+        name: "SubNavBarPage",
+        component: SubNavBarPage,
       },
     ],
   },

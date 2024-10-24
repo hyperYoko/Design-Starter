@@ -11,6 +11,7 @@ $primary-color-gradient: linear-gradient(
 $primary-color-2: #4c8493;
 $secondary-color: rgb(245, 248, 250);
 $secondary-color-dark: rgb(223, 227, 235);
+$secondary-color-hover: rgb(229, 245, 248);
 
 $tertiary-color: #ff7a59;
 $white: rgb(254, 254, 254);
@@ -100,7 +101,7 @@ html {
   background-color: #8d8d8d;
 }
 
-//page
+//Elevated Page
 .PageBackgroundDiv {
   background-color: $light-grey;
 }
@@ -121,23 +122,10 @@ html {
   box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.13),
     0px 0px 2.9px rgba(0, 0, 0, 0.11);
 }
-.PageTitleCard2 {
-  display: flex;
-  align-items: center;
-  height: 70px;
-  padding: 0px !important;
-  background-color: $light-grey;
-  border-radius: 5px;
-  border: none !important;
-  // margin-bottom: 16px;
-}
-.PageTitleCardTextContainer2 {
-  padding: 0px !important;
-}
 
 .PageTitleCardText {
   color: $primary-color;
-  font-size: 19px;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -176,7 +164,7 @@ html {
 .ImageCardText {
   color: $primary-color;
   text-align: center;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   //ellipses
   white-space: nowrap;
@@ -220,7 +208,7 @@ html {
 .SelectableCardTextHead {
   color: $primary-color;
   text-align: center;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   //ellipses
   white-space: nowrap;
@@ -250,8 +238,8 @@ html {
   opacity: 0.8;
 }
 .ActionButtonDimensions {
-  height: 30px !important;
-  width: 30px !important;
+  height: 32px !important;
+  width: 32px !important;
 }
 .ActionButton i {
   display: flex;
@@ -266,10 +254,6 @@ html {
   background-color: $primary-color !important;
   border-radius: 50px;
   opacity: 0.8;
-}
-.ActionButtonInverseDimensions {
-  height: 30px !important;
-  width: 30px !important;
 }
 .ActionButtonInverse i {
   display: flex;
@@ -309,6 +293,11 @@ html {
   background-color: $white;
   color: $tertiary-color;
   border: 1px solid $tertiary-color;
+}
+.NormalButtonHeaderDimensions {
+  height: 35px !important;
+  width: 105px !important;
+  font-size: small;
 }
 
 .PreviousButton {
@@ -443,8 +432,19 @@ html {
   padding: 16px;
   position: relative;
   overflow: visible;
+  // border: 1px solid $medium-grey;
   border-top: 11px solid $primary-color;
   background-color: $light-grey;
+}
+.HeaderInverse {
+  height: auto !important;
+  width: 55%;
+  margin: 3px auto;
+  padding: 16px;
+  position: relative;
+  overflow: visible;
+  border: 1px solid $medium-grey;
+  border-top: 11px solid $primary-color;
 }
 .FormHeaderTextField input {
   font-size: 22.5px !important;
@@ -468,9 +468,14 @@ html {
 .Section {
   width: 55%;
   margin: 5px auto;
-  /* border-radius: 8px; */
   background-color: $light-grey;
-  /* background-color: #dfeef5; */
+  // border: 1px solid $medium-grey;
+}
+.SectionInverse {
+  width: 55%;
+  margin: 3px auto;
+
+  border: 1px solid $medium-grey;
 }
 
 .Section-middle {
@@ -540,4 +545,199 @@ html {
 .DialogCardTitle {
   background-color: $primary-color;
   color: $white;
+}
+
+//Elevated Page with Line
+.ElevatedTabsLinePageTitleCard {
+  display: flex;
+  height: 107.5px;
+  padding: 10px 10px 0px; //removed padding bottom to accomodate tabs
+  background-color: $white;
+  border-radius: 5px;
+  border: none !important;
+  margin-bottom: 16px;
+  // box-shadow: 0 2px 6px #0000001f, inset 0 -1px #dadce0;
+  box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.13),
+    0px 0px 2.9px rgba(0, 0, 0, 0.11);
+}
+
+.ElevatedTabsLinePageTitleCardText {
+  color: $primary-color;
+  font-size: 20px;
+  font-weight: bold;
+}
+.ElevatedTabsLinePageTabs {
+  margin-top: 4px;
+  .v-tab {
+    border-radius: 10px !important;
+  }
+  .v-tab .v-btn__content {
+    font-size: 14px !important;
+    font-weight: 400;
+    text-transform: none;
+  }
+  .v-tab-item--selected .v-btn__content {
+    font-weight: 500 !important;
+  }
+  .v-tab__slider {
+    height: 4px !important;
+    border-radius: 24px !important;
+
+    // border-radius: 24px;
+    // bottom: -2.5px;
+    // height: 5px;
+    // left: 0px;
+    // position: absolute;
+    // width: 100%;
+    // z-index: 1;
+  }
+}
+.ElevatedCrumbsLinePageTitleCard {
+  display: flex;
+  height: 107.5px;
+  padding: 10px;
+  background-color: $white;
+  border-radius: 5px;
+  border: none !important;
+  margin-bottom: 16px;
+  // box-shadow: 0 2px 6px #0000001f, inset 0 -1px #dadce0;
+  box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.13),
+    0px 0px 2.9px rgba(0, 0, 0, 0.11);
+}
+.ElevatedCrumbsLinePageCrumbs {
+  margin-top: 8.5px;
+  padding: 0px !important;
+  .v-breadcrumbs-item {
+    font-size: 14px !important;
+    font-weight: 300;
+    padding: 0px !important;
+  }
+  .v-breadcrumbs-divider {
+    opacity: 0.7 !important;
+  }
+}
+//Plain Page
+.PlainPageBackgroundDiv {
+  background-color: $light-grey;
+}
+.PlainPageBackgroundContainer {
+  background-color: $light-grey;
+  padding: 0px !important;
+}
+
+.PlainTabsLinePageTitleCard {
+  display: flex;
+  height: 107.5px;
+  padding: 10px 30px 0px; //removed padding bottom to accomodate tabs
+  background-color: $white;
+  border-radius: 0px;
+  border-top: 1px solid $medium-grey;
+  border-bottom: 1px solid $medium-grey;
+}
+
+.PlainTabsLinePageBodyCard {
+  background-color: $light-grey;
+  padding: 10px 30px;
+  border-radius: 0px;
+}
+
+//SubNavBarPage
+.SubNavBarPageBackgroundDiv {
+  background-color: $white;
+}
+.SubNavBarPageBackgroundContainer {
+  background-color: $white;
+  padding: 0px !important;
+}
+.SubNavBar {
+  background-color: $secondary-color;
+  color: $primary-color;
+  border-top: 1px solid $medium-grey;
+}
+
+.SubNavBarListItems {
+  // border-radius: 3px !important;
+  margin: 10px 0;
+  transition: background-color 0.1s ease;
+  position: relative; //for :before border below
+}
+.SubNavBarListItems * {
+  color: $primary-color;
+}
+.SubNavBarListItemAppendIcon {
+  display: none !important;
+}
+.SubNavBarListItems:hover {
+  background-color: $secondary-color-hover !important;
+}
+.SubNavBarListItems:hover * {
+  // font-weight: 600 !important;
+}
+.SubNavBarListItems:hover .v-icon {
+  font-weight: bold !important;
+  opacity: 0.9 !important;
+}
+.SubNavBarListItems:hover .SubNavBarListItemAppendIcon {
+  display: inline-block !important;
+}
+.SubNavBarListItems.v-list-item--active {
+  // background-color: $secondary-color-hover !important;
+  // border-left: 5px solid $primary-color;
+}
+
+.SubNavBarListItems.v-list-item--active::before {
+  //alternate to border-left since that pushes text to the right when selected
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px; /* Your thick border width */
+  height: 100%;
+  background-color: $primary-color-hover; /* Your border color */
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.SubNavBarPageTitleCard {
+  display: flex;
+  height: 126px;
+  padding: 10px 30px 0px; //removed padding bottom to accomodate tabs
+  background-color: $white;
+  border-radius: 0px;
+  border-top: 1px solid $medium-grey;
+}
+.SubNavBarPageTabs {
+  margin-top: 20px;
+  .v-tab {
+    border-radius: 0px !important;
+    border-left: 1px solid $medium-grey;
+    border-top: 1px solid $medium-grey;
+    border-bottom: 1px solid $medium-grey;
+  }
+  .v-tab:last-child {
+    border-right: 1px solid $medium-grey;
+  }
+  .v-tab .v-btn__content {
+    font-size: 14px !important;
+    font-weight: 400;
+    text-transform: none;
+  }
+  .v-tab-item--selected {
+    background-color: $light-grey !important;
+    border-bottom: none !important;
+  }
+  .v-tab-item--selected .v-btn__content {
+    font-weight: 600 !important;
+  }
+  .v-tab__slider {
+    display: none;
+  }
+}
+.SubNavBarPageBorderBottom {
+  border-bottom: 1px solid $medium-grey !important;
+}
+
+.SubNavBarPageBodyCard {
+  background-color: $white;
+  padding: 10px 30px;
+  border-radius: 0px;
 }

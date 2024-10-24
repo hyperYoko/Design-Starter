@@ -7,7 +7,7 @@
       <!-- remove v-container fluid prop for smaller width -->
       <v-card class="PageTitleCard">
         <v-card-title primary-title>
-          <div class="PageTitleCardText">Page 1</div>
+          <div class="PageTitleCardText">Elevated Page</div>
         </v-card-title>
         <v-spacer></v-spacer>
         <span
@@ -28,7 +28,7 @@
           <!-- <v-btn
             icon="fas fa-plus"
             size="x-small"
-            class="ActionButtonInverse ActionButtonInverseDimensions"
+            class="ActionButtonInverse ActionButtonDimensions"
             variant="flat"
           ></v-btn> -->
         </span>

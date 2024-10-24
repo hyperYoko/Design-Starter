@@ -3,9 +3,9 @@
       <AppNavBar></AppNavBar>
       <v-main>
         <router-view v-slot="{ Component, route }">
-          <v-scroll-x-transition>
+          <v-fade-transition>
             <component :is="Component" :key="route.path" />
-          </v-scroll-x-transition>
+          </v-fade-transition>
         </router-view>
       </v-main>
     </v-app>
