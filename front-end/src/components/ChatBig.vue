@@ -102,7 +102,23 @@
               ></v-icon>
             </div>
             <div class="action-buttons">
-              <v-icon class="icon" icon="fas fa-microphone" rounded></v-icon>
+              <v-btn
+                variant="flat"
+                class="icon"
+                icon
+                @click="
+                  () => {
+                    chatMic = !chatMic;
+                  }
+                "
+                ><v-icon
+                  icon="fas fa-microphone"
+                  size="x-small"
+                  style="display: flex"
+                >
+                </v-icon>
+                <div v-if="chatMic" class="pulse-ring"></div>
+              </v-btn>
             </div></div
         ></v-col>
       </v-row>
@@ -174,8 +190,9 @@ export default {
     return {
       subtitle: "",
       userMessage: "",
+      chatMic: false,
       isResponseGenerating: false,
-      isResponseOver: true, //for preventing new input when response is still generating 
+      isResponseOver: true, //for preventing new input when response is still generating
       isCursor: false,
       isHeaderCursor: false,
       chatMessages: [],
