@@ -9,6 +9,8 @@ import ElevatedLinePage from "@/components/ElevatedLinePage.vue";
 import PlainPage from "@/components/PlainPage.vue";
 import SubNavBarPage from "@/components/SubNavBarPage.vue";
 
+import ChatBig from "@/components/ChatBig.vue";
+
 
 
 const routes = [
@@ -44,6 +46,11 @@ const routes = [
         path: "/subnavbarpage",
         name: "SubNavBarPage",
         component: SubNavBarPage,
+      },
+      {
+        path: "/chatbig",
+        name: "ChatBig",
+        component: ChatBig,
       },
     ],
   },

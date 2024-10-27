@@ -796,3 +796,538 @@ html {
     padding: 20px;
   }
 }
+
+//Chat Big
+$chat-primary-color: #fff;
+$chat-secondary-color: #e9eef6;
+$chat-secondary-hover-color: #dbe1ea;
+$chat-text-color: #222;
+$chat-subheading-color: #a0a0a0;
+$chat-placeholder-color: #6c6c6c;
+
+$chat-dark-text-color: #e3e3e3;
+$chat-dark-subheading-color: #828282;
+$chat-dark-placeholder-color: #a6a6a6;
+$chat-dark-primary-color: #242424;
+$chat-dark-secondary-color: #383838;
+$chat-dark-secondary-hover-color: #444;
+
+.header,
+.chat-list .message,
+.typing-form {
+  margin: 0 auto;
+  max-width: 950px;
+}
+
+.header {
+  margin-top: 6vh;
+  padding: 1rem;
+  overflow-x: hidden;
+}
+
+.header :where(.title, .subtitle) {
+  color: $chat-text-color;
+  font-weight: 600;
+  line-height: 3.5rem;
+}
+
+.header .title {
+  width: fit-content;
+  font-size: 2.5rem;
+  background-clip: text;
+  background: linear-gradient(to right, #4285f4, #d96570);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: GradientAnimation 5s ease infinite;
+}
+
+@keyframes GradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.header .avatar {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 50%;
+  // align-self: flex-start;
+}
+
+.header .subtitle {
+  font-size: 2rem;
+  color: $chat-subheading-color;
+
+  .CursorIcon {
+    font-size: 1.6rem;
+    color: $dark-grey;
+    margin-left: 2px !important;
+    margin-bottom: 7px;
+  }
+}
+
+.chat-list {
+  padding: 2rem 1rem 12rem;
+  max-height: 85vh;
+  overflow-y: auto;
+  scrollbar-width: thin; //overrides webkit-based width as well
+  scrollbar-color: #acacac rgba(0, 0, 0, 0); //thumb and track
+}
+
+.chat-list .message {
+  margin: 0.5rem auto 1.5rem auto ;
+}
+
+.chat-list .message .message-content {
+  display: flex;
+  gap: 1.5rem;
+  width: 100%;
+  align-items: center;
+}
+
+.CursorIcon {
+  // display: flex;
+  animation: flicker 0.6s infinite;
+  margin-bottom: 5px;
+  color: $primary-color;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.chat-list .message .text {
+  color: $chat-text-color;
+  white-space: pre-wrap;
+}
+
+.chat-list .message.error .text {
+  color: #e55865;
+}
+
+.chat-list .message.loading .text {
+  display: none;
+}
+
+.chat-list .message .avatar {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  align-self: flex-start;
+}
+
+.chat-list .message.loading .avatar {
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.chat-list .message .icon {
+  color: $chat-text-color;
+  cursor: pointer;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  font-size: 1.25rem;
+  margin-left: 3.5rem;
+  visibility: hidden;
+}
+
+.chat-list .message .icon.hide {
+  visibility: hidden;
+}
+
+.chat-list .message:not(.loading, .error):hover .icon:not(.hide) {
+  visibility: visible;
+}
+
+.chat-list .message .icon:hover {
+  background: $chat-secondary-hover-color;
+}
+
+.chat-list .message .loading-indicator {
+  display: none;
+  gap: 0.8rem;
+  width: 100%;
+  flex-direction: column;
+}
+
+.chat-list .message.loading .loading-indicator {
+  display: flex;
+}
+
+.chat-list .message .loading-indicator .loading-bar {
+  height: 11px;
+  width: 100%;
+  border-radius: 0.135rem;
+  background-position: -800px 0;
+  background: linear-gradient(to right, #4285f4, $chat-primary-color, #4285f4);
+  animation: loading 3s linear infinite;
+}
+
+.chat-list .message .loading-indicator .loading-bar:last-child {
+  width: 70%;
+}
+.QuestionTextColor {
+  color: #6e6e6e !important;
+}
+
+@keyframes loading {
+  0% {
+    background-position: -800px 0;
+  }
+
+  100% {
+    background-position: 800px 0;
+  }
+}
+
+.typing-area {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  // bottom: 25px;
+  bottom: 0px;
+  padding: 1rem;
+  padding-bottom: 40px; //instead of bottom
+  background: $chat-primary-color;
+}
+
+.typing-area :where(.typing-form, .action-buttons) {
+  display: flex;
+  gap: 0.75rem;
+}
+.NavDrawerBasedMargin {
+  padding-left: calc(
+    var(--v-layout-left) + 1rem
+  ) !important; //position sticky removes the typing area from container so we now need to manually adjust margin-left based on navdrawer open or closed
+}
+.typing-form .input-wrapper {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  position: relative;
+}
+
+.typing-form .typing-input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  font-size: 1rem;
+  color: $chat-text-color;
+  padding: 1.1rem 4rem 1.1rem 1.5rem;
+  border-radius: 100px;
+  background: $chat-secondary-color;
+}
+
+.typing-form .typing-input:focus {
+  background: $chat-secondary-hover-color;
+}
+
+.typing-form .typing-input::placeholder {
+  color: $chat-placeholder-color;
+}
+
+.typing-area .icon {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  font-size: 1.4rem;
+  color: $chat-text-color;
+  align-items: center;
+  justify-content: center;
+  background: $chat-secondary-color;
+  transition: 0.2s ease;
+  opacity: 0.8;
+}
+
+.typing-area .icon:hover {
+  background: $chat-secondary-hover-color;
+}
+.typing-form #delete-chat-button {
+  position: absolute;
+  right: 40px;
+  outline: none;
+  border: none;
+  transform: scale(0);
+  background: transparent;
+  transition: transform 0.2s ease;
+}
+.typing-form #send-message-button {
+  position: absolute;
+  right: 0;
+  outline: none;
+  border: none;
+  transform: scale(0);
+  background: transparent;
+  transition: transform 0.2s ease;
+}
+.typing-form .typing-input:valid ~ #delete-chat-button {
+  transform: scale(1);
+}
+.typing-form .typing-input:valid ~ #send-message-button {
+  transform: scale(1);
+}
+
+@media (max-width: 768px) {
+  .header :is(.title, .subtitle) {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+
+  .header .subtitle {
+    font-size: 1.7rem;
+    line-height: 2rem;
+
+    .CursorIcon {
+      font-size: 1.3rem;
+      margin-bottom: 5px !important;
+    }
+  }
+  .chat-list {
+    padding: 2rem 1rem 7rem;
+    max-height: 85vh;
+  }
+  .chat-list .message .text {
+    font-size: 14px;
+  }
+  .chat-list .message .avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .typing-area :where(.typing-form, .action-buttons) {
+    gap: 0.4rem;
+  }
+
+  .typing-form .input-wrapper {
+    height: 50px;
+  }
+
+  .typing-form .typing-input {
+    padding: 1.1rem 3.5rem 1.1rem 1.2rem;
+  }
+
+  .typing-area .icon {
+    height: 50px;
+    width: 50px;
+  }
+}
+.WithinChatSmall {
+  //modify ChatBig not just when screen is small(usgin mediaquery) but also when it is inside a popup
+  padding-top: 0;
+  padding-right: 0; //to push chat-list's scrollbar to right
+
+  .header {
+    padding-right: calc(
+      1rem + 16px
+    ); //to push scrollbar to right but match container's padding which has been removed on container-right
+  }
+  .header :is(.title, .subtitle) {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+
+  .header .subtitle {
+    font-size: 1.6rem;
+    line-height: 2rem;
+
+    .CursorIcon {
+      font-size: 1.3rem;
+      margin-bottom: 5px !important;
+    }
+  }
+  .chat-list {
+    padding: 2rem calc(0.5rem + 16px) 5rem 0.5rem; //to push scrollbar to right but match container's padding which has been removed on container-right
+    max-height: calc(460px - 80px); //match chat popup body minus footer height
+  }
+  .chat-list .message .text {
+    font-size: 14px;
+  }
+  .chat-list .message .avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .typing-area {
+    position: absolute;
+  }
+  .typing-area :where(.typing-form, .action-buttons) {
+    gap: 0.4rem;
+  }
+
+  .typing-form .input-wrapper {
+    height: 50px;
+  }
+
+  .typing-form .typing-input {
+    padding: 1.1rem 3.5rem 1.1rem 1.2rem;
+  }
+
+  .typing-area .icon {
+    height: 50px;
+    width: 50px;
+  }
+
+  //custom mods for popup apart form media screen copy
+  .typing-area {
+    padding: 1rem !important;
+  }
+}
+
+//Chat Small
+//fab buttons
+.chatbot-toggler {
+  position: fixed;
+  bottom: 30px;
+  right: 35px;
+  height: 47px;
+  width: 47px;
+  // border-radius: 50%;
+  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3),
+    0 4px 8px 3px rgba(60, 64, 67, 0.15);
+  background: $white;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.chatbot-toggler--open {
+  transform: rotate(90deg);
+}
+
+.chatbot-toggler i {
+  display: flex;
+}
+
+.chatbot-toggler__image {
+  height: 30px;
+  width: 30px;
+}
+
+.chatbot-popup {
+  position: fixed;
+  right: 35px;
+  bottom: 30px;
+  width: 420px;
+  overflow: hidden;
+  background: $white;
+  border-radius: 15px;
+  opacity: 0;
+  pointer-events: none;
+  // transform: scale(0.2);
+  // transform-origin: bottom right; //im using v-if(to make sure typewriter in ChatBig's created() triggers only when popup is opened) so this gets negated so i commented it
+  box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+    0 32px 64px -48px rgba(0, 0, 0, 0.5);
+  // transition: all 0.1s ease;
+  z-index: 1;
+}
+
+.chatbot-popup--open {
+  opacity: 1;
+  pointer-events: auto;
+  // transform: scale(1);   //commenting this causes chat input footer to move to bottom of whole screen for some reason if i keep using position fixed for footer instead of changing it to absolute just for the popup
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  padding: 15px calc(16px + 0.5rem); //body's container's padding + body's chat-list's padding = matches body's message avatar
+  background: $primary-color;
+  justify-content: space-between;
+}
+
+.chat-header .header-info {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.header-info .chatbot-logo {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.header-info .logo-text {
+  color: $white;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0.02rem;
+}
+.chat-header .close-chatbot {
+  color: #fff;
+  height: 40px;
+  width: 40px;
+  // margin-right: -10px;
+  // padding-top: 2px;
+  cursor: pointer;
+  // border-radius: 50%;
+  background: none;
+  transition: 0.2s ease;
+}
+.close-chatbot i {
+  display: flex;
+}
+
+.chat-body {
+  // padding: 25px 22px;
+  gap: 20px;
+  // display: flex;
+  height: 460px;
+  overflow-y: auto;
+  // flex-direction: column;
+  scrollbar-width: thin;
+}
+
+@media (max-width: 520px) {
+  .chatbot-toggler {
+    right: 20px;
+    bottom: 20px;
+  }
+
+  .chatbot-popup {
+    right: 0;
+    bottom: 0;
+    height: 80%;
+    width: 90%;
+  }
+
+  .chatbot-popup .chat-header {
+    padding: 12px 15px;
+  }
+
+  .chat-body {
+    height: calc(90% - 55px);
+    padding: 25px 15px;
+  }
+}

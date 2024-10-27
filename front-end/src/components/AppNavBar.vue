@@ -120,6 +120,9 @@ export default {
 
       { text: "Plain Page", icon: "fas fa-file-lines", id: 4 },
       { text: "SubNavBar Page", icon: "fas fa-file-lines", id: 5 },
+
+      { text: "Chat Big", icon: "fas fa-file-lines", id: 6 },
+
     ],
   }),
   methods: {
@@ -135,6 +138,8 @@ export default {
         this.$router.push({ name: "PlainPage" });
       } else if (id == 5) {
         this.$router.push({ name: "SubNavBarPage" });
+      } else if (id == 6) {
+        this.$router.push({ name: "ChatBig" });
       }
     },
   },

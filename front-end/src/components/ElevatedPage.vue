@@ -127,7 +127,6 @@
             <v-toolbar variant="flat" class="DataTableTop">
               <v-text-field
                 v-model="search"
-                variant="flat"
                 append-inner-icon="fas fa-magnifying-glass"
                 hide-details
                 density="compact"
@@ -178,6 +177,7 @@ export default {
           habitat: "Savanna, Forests",
         },
       ],
+      search: "",
     };
   },
 };

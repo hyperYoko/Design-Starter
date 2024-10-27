@@ -2,8 +2,7 @@ import { defineStore } from 'pinia';
 
 export const useStore = defineStore('myStore', {
   state: () => ({ 
-		count: 0, 
-		name: 'Eduardo' 
+		chatSmall: false,
 	}),
   getters: {
     doubleCount: (state) => state.count * 2,
