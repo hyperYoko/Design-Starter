@@ -87,7 +87,7 @@
         <template v-slot:prepend>
           <v-icon :icon="item.icon"></v-icon>
         </template>
-        <v-list-item-title style="font-size: 15px; line-height: 1.15rem">{{
+        <v-list-item-title class="NavBarListItemTitle">{{
           item.text
         }}</v-list-item-title>
         <template v-slot:append>

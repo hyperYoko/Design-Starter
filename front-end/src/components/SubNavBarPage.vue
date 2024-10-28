@@ -18,7 +18,8 @@
           slim
         >
           <v-list-item-title
-            style="font-size: 15px; line-height: 1.15rem; padding-left: 20px"
+            class="NavBarListItemTitle"
+            style="padding-left: 20px"
             >{{ item.text }}</v-list-item-title
           >
           <!-- <template v-slot:append>
@@ -144,14 +145,14 @@
                 </template> -->
                 <v-card-item class="SubNavBarPageHeader">
                   <template v-slot:title>
-                    <span class="PageTitleCardText" style="font-size: 19px"
-                      >Export Config</span
+                    <h3 class="PageTitleCardText" style="font-size: 19px"
+                      >Export Config</h3
                     >
                   </template>
                 </v-card-item>
 
                 <v-card-text class="SubNavBarPageText">
-                  <h3>SubTotal</h3>
+                  <h3 style="font-size: 16px">SubTotal</h3>
                   <p style="margin-top: 10px">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Commodi, ratione debitis quis est labore voluptatibus! Eaque

@@ -131,6 +131,7 @@
                 hide-details
                 density="compact"
                 class="SearchField"
+                variant="flat"
               ></v-text-field>
             </v-toolbar>
           </template>

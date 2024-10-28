@@ -7,18 +7,41 @@ $primary-color-gradient: linear-gradient(
   hsla(210, 28%, 28%, 1) 0%,
   hsla(210, 43%, 51%, 1) 100%
 );
-
-$primary-color-2: #4c8493;
 $secondary-color: rgb(245, 248, 250);
-$secondary-color-dark: rgb(223, 227, 235);
+$secondary-color-dark: rgb(234, 240, 246);
 $secondary-color-hover: rgb(229, 245, 248);
 
 $tertiary-color: #ff7a59;
+
+$primary-color-2: #4c8493;
+
 $white: rgb(254, 254, 254);
 $light-grey: rgb(247, 247, 247);
 $light-medium-grey: rgba(0, 0, 0, 0.12);
 $medium-grey: #bebebe;
 $dark-grey: #979797;
+
+$box-shadow-maincard: 0px 1.6px 3.6px rgba(0, 0, 0, 0.13),
+  0px 0px 2.9px rgba(0, 0, 0, 0.11);
+$box-shadow-imagecard: 0 0 0 1px #7fd1de, 0 0 12px 0 rgba(0, 163, 189, 0.3);
+$box-shadow-selectablecard-selected: 0 0 0 1px #00a4bd;
+$box-shadow-field-active: 0 0 4px 1px rgba(0, 208, 228, 0.3), 0 0 0 1px #00d0e4;
+$box-shadow-fab: 0 1px 3px 0 rgba(60, 64, 67, 0.3),
+  0 4px 8px 3px rgba(60, 64, 67, 0.15);
+
+$font-size-logo: 22px;
+$font-size-head: 20px;
+$font-size-1: 22.5px;
+$font-size-2: 19px;
+$font-size-3: 16px;
+$font-size-4: 14px;
+$font-size-fieldlabel: 13.25px;
+
+$font-size-largeText: 40px;
+$font-size-subLargeText: 32px;
+$font-size-subSubLargeText: 26px;
+
+
 //vuetify font
 .v-application,
 .v-overlay-container {
@@ -59,6 +82,10 @@ $dark-grey: #979797;
 .NavBarListItems * {
   color: $light-grey;
 }
+.NavBarListItemTitle {
+  font-size: calc($font-size-4 + 1px) !important;
+  line-height: 1.15rem;
+}
 .NavBarListItemAppendIcon {
   display: none !important;
 }
@@ -80,7 +107,7 @@ $dark-grey: #979797;
 //firefox
 html {
   scrollbar-width: thin; //overrides webkit-based width as well
-  scrollbar-color: #acacac rgba(0, 0, 0, 0); //thumb and track
+  scrollbar-color: $medium-grey rgba(0, 0, 0, 0); //thumb and track
 }
 //webkit-based browsers
 ::-webkit-scrollbar {
@@ -89,7 +116,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #acacac;
+  background-color: $medium-grey;
   border-radius: 4px !important;
 }
 
@@ -98,7 +125,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #8d8d8d;
+  background-color: $dark-grey;
 }
 
 //Elevated Page
@@ -119,13 +146,12 @@ html {
   border: none !important;
   margin-bottom: 16px;
   // box-shadow: 0 2px 6px #0000001f, inset 0 -1px #dadce0;
-  box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.13),
-    0px 0px 2.9px rgba(0, 0, 0, 0.11);
+  box-shadow: $box-shadow-maincard;
 }
 
 .PageTitleCardText {
   color: $primary-color;
-  font-size: 20px;
+  font-size: $font-size-head;
   font-weight: bold;
 }
 
@@ -133,8 +159,7 @@ html {
   background-color: $white;
   padding: 40px 50px;
   border-radius: 5px;
-  box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.13),
-    0px 0px 2.9px rgba(0, 0, 0, 0.11);
+  box-shadow: $box-shadow-maincard, 0px 0px 2.9px rgba(0, 0, 0, 0.11);
 }
 
 //Card
@@ -153,7 +178,7 @@ html {
 }
 .ImageCard:hover {
   cursor: pointer;
-  box-shadow: 0 0 0 1px #7fd1de, 0 0 12px 0 rgba(0, 163, 189, 0.3);
+  box-shadow: $box-shadow-imagecard;
   // box-shadow: 0 0 0 1px $primary-color-hover, 0 0 12px 0 rgba(0, 163, 189, 0.3);
 }
 .ImageCardImage {
@@ -164,7 +189,7 @@ html {
 .ImageCardText {
   color: $primary-color;
   text-align: center;
-  font-size: 16px;
+  font-size: $font-size-3;
   font-weight: 500;
   //ellipses
   white-space: nowrap;
@@ -182,11 +207,11 @@ html {
 }
 .SelectableCard:hover {
   cursor: pointer;
-  box-shadow: 0 0 0 1px #7fd1de, 0 0 12px 0 rgba(0, 163, 189, 0.3);
+  box-shadow: $box-shadow-imagecard;
 }
 .SelectableCard_selected {
   border-color: #00a4bd;
-  box-shadow: 0 0 0 1px #00a4bd;
+  box-shadow: $box-shadow-selectablecard-selected;
   background-color: #e5f5f8;
   transition: all 0.15s ease-out;
 }
@@ -208,7 +233,7 @@ html {
 .SelectableCardTextHead {
   color: $primary-color;
   text-align: center;
-  font-size: 16px;
+  font-size: $font-size-3;
   font-weight: 500;
   //ellipses
   white-space: nowrap;
@@ -222,7 +247,7 @@ html {
   padding: 0px 16px !important;
   color: $primary-color;
   text-align: center;
-  font-size: 12px;
+  font-size: $font-size-fieldlabel;
   line-height: 18px;
   //ellipses
   white-space: normal;
@@ -398,7 +423,7 @@ html {
 }
 .SearchField:has(.v-field--active) {
   border-color: rgba(0, 208, 228, 0.5);
-  box-shadow: 0 0 4px 1px rgba(0, 208, 228, 0.3), 0 0 0 1px #00d0e4;
+  box-shadow: $box-shadow-field-active;
   outline: 0;
 }
 //header option 1
@@ -447,13 +472,13 @@ html {
   border-top: 11px solid $primary-color;
 }
 .FormHeaderTextField input {
-  font-size: 22.5px !important;
+  font-size: $font-size-1 !important;
   font-weight: 600 !important;
   padding-top: 0px !important;
   margin-bottom: 15px;
 }
 .FormHeaderDescriptionField input {
-  font-size: 14px !important;
+  font-size: $font-size-4 !important;
   padding-top: 0px !important;
 }
 .Header-NoSection {
@@ -497,12 +522,12 @@ html {
 }
 
 .FormSectionTextField input {
-  font-size: 18px;
+  font-size: $font-size-2;
   font-weight: 600;
   padding: 0px;
 }
 .FormFieldGroupTextField input {
-  font-size: 15px;
+  font-size: $font-size-3;
   font-weight: 600;
   padding: 0px;
 }
@@ -516,7 +541,7 @@ html {
 }
 .FieldLabel {
   padding: 0 0 5px 2px;
-  font-size: 13.25px;
+  font-size: $font-size-fieldlabel;
 }
 .FieldDate input {
   display: block;
@@ -557,13 +582,12 @@ html {
   border: none !important;
   margin-bottom: 16px;
   // box-shadow: 0 2px 6px #0000001f, inset 0 -1px #dadce0;
-  box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.13),
-    0px 0px 2.9px rgba(0, 0, 0, 0.11);
+  box-shadow: $box-shadow-maincard;
 }
 
 .ElevatedTabsLinePageTitleCardText {
   color: $primary-color;
-  font-size: 20px;
+  font-size: $font-size-head;
   font-weight: bold;
 }
 .ElevatedTabsLinePageTabs {
@@ -572,7 +596,7 @@ html {
     border-radius: 10px !important;
   }
   .v-tab .v-btn__content {
-    font-size: 14px !important;
+    font-size: $font-size-4 !important;
     font-weight: 400;
     text-transform: none;
   }
@@ -601,14 +625,13 @@ html {
   border: none !important;
   margin-bottom: 16px;
   // box-shadow: 0 2px 6px #0000001f, inset 0 -1px #dadce0;
-  box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.13),
-    0px 0px 2.9px rgba(0, 0, 0, 0.11);
+  box-shadow: $box-shadow-maincard;
 }
 .ElevatedCrumbsLinePageCrumbs {
   margin-top: 8.5px;
   padding: 0px !important;
   .v-breadcrumbs-item {
-    font-size: 14px !important;
+    font-size: $font-size-4 !important;
     font-weight: 300;
     padding: 0px !important;
   }
@@ -718,7 +741,7 @@ html {
     border-right: 1px solid $medium-grey;
   }
   .v-tab .v-btn__content {
-    font-size: 14px !important;
+    font-size: $font-size-4 !important;
     font-weight: 400;
     text-transform: none;
   }
@@ -749,7 +772,7 @@ html {
   }
   .SubNavBarPageFieldLabel {
     padding: 0 0 5px 0px;
-    font-size: 13.25px;
+    font-size: $font-size-fieldlabel;
     font-weight: 500;
   }
   .SubNavBarPageField {
@@ -833,7 +856,7 @@ $chat-dark-secondary-hover-color: #444;
 
 .header .title {
   width: fit-content;
-  font-size: 2.5rem;
+  font-size: $font-size-largeText;
   background-clip: text;
   background: linear-gradient(to right, #4285f4, #d96570);
   background-size: 200% 200%;
@@ -862,7 +885,7 @@ $chat-dark-secondary-hover-color: #444;
 }
 
 .header .subtitle {
-  font-size: 2rem;
+  font-size: $font-size-subLargeText;
   color: $chat-subheading-color;
 
   .CursorIcon {
@@ -1123,12 +1146,12 @@ $chat-dark-secondary-hover-color: #444;
 
 @media (max-width: 768px) {
   .header :is(.title, .subtitle) {
-    font-size: 2rem;
+    font-size: $font-size-subLargeText;
     line-height: 3rem;
   }
 
   .header .subtitle {
-    font-size: 1.7rem;
+    font-size: $font-size-subSubLargeText;
     line-height: 2rem;
 
     .CursorIcon {
@@ -1165,10 +1188,8 @@ $chat-dark-secondary-hover-color: #444;
     width: 50px;
   }
   .pulse-ring {
-    
     width: 50px; //match .typing-area .icon
     height: 50px;
-    
   }
 }
 .WithinChatSmall {
@@ -1182,12 +1203,12 @@ $chat-dark-secondary-hover-color: #444;
     ); //to push scrollbar to right but match container's padding which has been removed on container-right
   }
   .header :is(.title, .subtitle) {
-    font-size: 2rem;
+    font-size: $font-size-subLargeText;
     line-height: 3rem;
   }
 
   .header .subtitle {
-    font-size: 1.6rem;
+    font-size: $font-size-subSubLargeText;
     line-height: 2rem;
 
     .CursorIcon {
@@ -1227,10 +1248,8 @@ $chat-dark-secondary-hover-color: #444;
     width: 50px;
   }
   .pulse-ring {
-    
     width: 50px; //match .typing-area .icon
     height: 50px;
-    
   }
 
   //custom mods for popup apart form media screen copy
@@ -1248,8 +1267,7 @@ $chat-dark-secondary-hover-color: #444;
   height: 47px;
   width: 47px;
   // border-radius: 50%;
-  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3),
-    0 4px 8px 3px rgba(60, 64, 67, 0.15);
+  box-shadow: $box-shadow-fab;
   background: $white;
   transition: transform 0.3s ease;
   cursor: pointer;
@@ -1316,8 +1334,7 @@ $chat-dark-secondary-hover-color: #444;
 .header-info .logo-text {
   color: $white;
   font-weight: 600;
-  font-size: 20px;
-  letter-spacing: 0.02rem;
+  font-size: $font-size-head;
 }
 .chat-header .close-chatbot {
   color: #fff;
